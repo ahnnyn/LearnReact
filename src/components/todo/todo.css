@@ -1,7 +1,8 @@
 .todo-container{
     margin: 0 auto;
-    width: 600px;
-    height: 600px;
+    padding: 20px;
+    width: 800px;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,8 +54,9 @@ input::placeholder{
 }
 
 .todo-data{
-    width: 400px;
-    height: 30px;
+    width: 600px;
+    height: auto;
+    margin: 20px;
     font-size: 16px;
     color: rgb(74, 58, 58);
     text-decoration: none;
@@ -62,4 +64,27 @@ input::placeholder{
     border: 1px solid rgb(137, 135, 135);
     border-radius: 10px;
     
+}
+
+.todo-image img{
+    width: 90px;
+    height: 90px;
+    margin: 20px;
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+}
+
+.todo-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
 }

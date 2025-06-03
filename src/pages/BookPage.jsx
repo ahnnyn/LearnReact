@@ -1,7 +1,7 @@
 
 const BookPage = () => {
     return (
-        <div>Products</div>
+        <div style={{padding: "20px"}}>Products</div>
     )
 }
 

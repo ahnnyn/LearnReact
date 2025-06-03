@@ -12,6 +12,7 @@ import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import ErrorPage from './pages/Error.jsx';
 import BookPage from './pages/BookPage.jsx';
+import "antd/dist/reset.css";
 
 const router = createBrowserRouter([
   {

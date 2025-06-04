@@ -6,7 +6,6 @@ const TodoData = (props) =>{
     // const name = props.name;
     // const age = props.age;
     // const data = props.data;
-    console.log(">>>check props: ", props);
     const { todoList, deleteTodo } = props; //lấy giá trị todoList từ props
 
     const handleOnClick = (id) => {

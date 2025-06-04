@@ -40,7 +40,6 @@ const ViewUserDetail = (props) =>{
         const resUpload = await handleUploadFile(selectedFile, "avatar");
         if(resUpload.data){
             const newAvatar = resUpload.data.fileUploaded;
-            console.log(">>Checking newAvatar: ", newAvatar);
             //step : update user
             const resUpdateAvatar = await updateUserAvatarAPI(newAvatar, dataDetail._id, dataDetail.fullName, dataDetail.phone);
             if(resUpdateAvatar.data){
@@ -68,7 +67,6 @@ const ViewUserDetail = (props) =>{
         }
         
     }
-    console.log(">>Checking upload: ", preview);
     return (
         <Drawer
                 width={"50vw"}

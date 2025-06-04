@@ -28,7 +28,6 @@ const UserForm = (props) => {
         });
     }
     
-    console.log(">>Checking res: ", res.data);
   };
 
   const resetAndCloseModal = () => {

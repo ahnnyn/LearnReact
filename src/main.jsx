@@ -13,6 +13,8 @@ import Register from './pages/Register.jsx';
 import ErrorPage from './pages/Error.jsx';
 import BookPage from './pages/BookPage.jsx';
 import "antd/dist/reset.css";
+import { AuthWrapper } from './components/context/auth.context.jsx';
+import PrivateRoute from './pages/private.route.jsx';
 
 const router = createBrowserRouter([
   {
@@ -26,7 +28,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/books",
-        element: <BookPage />,
+        element: 
+        (
+          <PrivateRoute>
+            <BookPage />
+          </PrivateRoute>
+        )
       },
 
       {
@@ -49,7 +56,9 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  // <StrictMode>
+  <AuthWrapper>
     <RouterProvider router={router} />
-  </StrictMode>,
+  {/* </StrictMode>, */}
+  </AuthWrapper>
 )

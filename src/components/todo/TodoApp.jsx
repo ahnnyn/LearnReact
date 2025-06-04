@@ -35,7 +35,6 @@ const TodoApp = () => {
   const deleteTodo = (id) => {
     const newTodo = todoList.filter(item => item.id !== id)
     setTodoList(newTodo); //cập nhật lại todoList sau khi xóa
-    console.log(">>>check new todo with id: ", newTodo);
   }
 
   return (

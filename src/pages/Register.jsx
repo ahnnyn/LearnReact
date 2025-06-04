@@ -1,6 +1,6 @@
-import { Button, Input, Form, notification, Row, Col } from "antd";
+import { Button, Input, Form, notification, Row, Col, Divider } from "antd";
 import { registerUserAPI } from "../services/api.service";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 const Register = () => {
     const [form] = Form.useForm();
     const navigate = useNavigate();
@@ -96,6 +96,11 @@ const Register = () => {
                             form.getFieldValue("fullName");
                             console.log("Check fullName", form.getFieldValue("fullName"));
                         }} type="primary">Test</Button> */}
+                    </div>
+                    <Divider />
+                    <div style={{ textAlign: "center" }}>
+                        <span>Already have an account? </span>
+                        <Link to={"/login"}>Login</Link>
                     </div>
                 </Col>
              </Row>

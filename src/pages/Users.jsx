@@ -27,7 +27,6 @@ const Users = () => {
         }
     }
 
-    console.log("Check current", current);
     return (
         <div style={{padding: "20px"}}>
             <UserForm loadAllUser = {loadAllUser}/>

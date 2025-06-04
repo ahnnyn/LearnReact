@@ -15,7 +15,6 @@ const UpdateUserModal = (props) => {
     } = props;  
     
     useEffect(()=>{
-        console.log(">>Checking dataUpdate: ", dataUpdate);
         if(dataUpdate){
             setFullName(dataUpdate.fullName);
             setPhone(dataUpdate.phone);
@@ -39,7 +38,6 @@ const UpdateUserModal = (props) => {
             });
         }
         
-        console.log(">>Checking res: ", res.data);
   };
 
   const resetAndCloseModal = () => {

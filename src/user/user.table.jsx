@@ -7,7 +7,7 @@ import ViewUserDetail from './view.user.detail';
 import { deleteUserAPI } from '../services/api.service';
 const UserTable = (props) => {
     
-    const {dataUsers, loadAllUser} = props;
+    const {dataUsers, loadAllUser, current, pageSize, total, setCurrent, setPageSize} = props;
     const [isModalUpdateOpen, setIsModalUpdateOpen] = useState(false);  
     const [dataUpdate, setDataUpdate] = useState(null);
     const [isDetailOpen, setIsDetailOpen] = useState(false);  
@@ -32,6 +32,16 @@ const UserTable = (props) => {
 
 
     const columns = [
+        {
+            title: 'STT',
+            render: (_, record, index) => {
+                return (
+                    <>
+                        {(index + 1) + (current - 1) * pageSize} 
+                    </>
+                )
+            }
+        },
         {
             title: 'ID',
             dataIndex: '_id',
@@ -91,6 +101,25 @@ const UserTable = (props) => {
 
     ];
 
+    const onChange = (pagination, filters, sorter, extra) => {
+        // console.log("Check: ", pagination, filters, sorter, extra);
+        //nếu thay đổi trang: current
+        if(pagination && pagination.current){
+            if(pagination.current !== +current){
+                setCurrent(+pagination.current); //"+pagination.current" để chuyển đổi sang kiểu số
+            }
+        }
+        //nếu thay đổi tổng số phần tử: pageSize
+
+        if(pagination && pagination.pageSize){
+            if(pagination.pageSize!== +pageSize){
+                setPageSize(+pagination.pageSize); //"+pagination.current" để chuyển đổi sang kiểu số
+            }
+        }
+
+    };
+
+
 
     return (
         <>
@@ -98,6 +127,17 @@ const UserTable = (props) => {
                 columns={columns} 
                 dataSource={dataUsers} 
                 rowKey={"_id"}
+                pagination={
+                    {
+                        current: current,
+                        pageSize: pageSize,
+                        showSizeChanger: true,
+                        total: total,
+                        showTotal: (total, range) => { return (<div> {range[0]}-{range[1]} trên {total} rows</div>) }
+                    } 
+                }
+                onChange={onChange}
+
             />
 
             <UpdateUserModal
@@ -113,6 +153,7 @@ const UserTable = (props) => {
                 setIsDetailOpen = {setIsDetailOpen}
                 dataDetail = {dataDetail}
                 setDataDetail = {setDataDetail}
+                loadAllUser = {loadAllUser}
             />
         </>
 

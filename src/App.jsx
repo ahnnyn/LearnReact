@@ -7,7 +7,7 @@ import { AuthContext } from "./components/context/auth.context.jsx";
 import { useContext } from "react";
 import { Spin } from "antd";
 const App = () => {
-    const {user, setUser, isAppLoading, setIsAppLoading} = useContext(AuthContext);
+    const {setUser, isAppLoading, setIsAppLoading} = useContext(AuthContext);
   
   useEffect(() => {
     fetchUserInfo();
